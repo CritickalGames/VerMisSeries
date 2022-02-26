@@ -6,9 +6,15 @@ var lista={
 
 };
 
-function next(){
-  var reproducor = 
+
+function setReproductor(){
+    var reproducor = 
     document.getElementsByTagName("video");
+    return reproducor;
+}
+
+function next(){
+  reproducor= setReproductor();
   var srcReproductor = reproducor[0].getAttribute("src");
   var cap = "2.mp4";
   var i = srcReproductor.indexOf("video");
