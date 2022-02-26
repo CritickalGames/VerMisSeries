@@ -21,7 +21,7 @@ function next(){
     reproducor[0].setAttribute("src", nuevoVideo);
   }
 }
-
+/**
 function back(){
   var reproducor = 
     document.getElementsByTagName("video");
@@ -36,7 +36,7 @@ function back(){
     var nuevoVideo = srcReproductor.substring(0,i) + cap;
     reproducor[0].setAttribute("src", nuevoVideo);
   }
-}
+}**/
 
 
 function init(){
