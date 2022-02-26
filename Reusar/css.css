@@ -1,209 +1,24 @@
-nav{
-  text-align: center;
+#playlist, audio{
+  background:#666;
+  width:400px;
+  padding:20px;
+  list-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+a {
+  text-decoration:none;
+}
+.active a {
+  color:#5DB0E6;
+  text-decoration:none;
+}
+li a{
+  color:#eeeedd;
+  background:#333;
+  padding:5px;
+  display:block;
+}
+li a:hover{
+  text-decoration:none;
 }
 
-
-a:link{
-  color: black;
-}
-a:hover{
-  color: blue;
-}
-a:visited{
-  color: white;
-}
-
-
-a.menu:hover{
-  /*Tamaño y posición del CONTENEDOR*/
-  margin: 2em auto;
-  width: 700px;
-
-  /*Forma del CONTENEDOR*/
-  padding: 3px 10px;
-    border: rgb(235, 39, 193) 5px;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-  
-  /*Color del CONTENEDOR*/
-  border: #215CCB 8px outset;
-  background: #346EDA;
-
-  /*Ni idea*/
-  -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-}
-div.body{
-  /*Tamaño y posición del CONTENEDOR*/
-  margin: 2em auto;
-  width: 700px;
-
-  /*Forma del CONTENEDOR*/
-  padding: 3px 10px;
-    border: PowderBlue 5px;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-  
-  /*Color del CONTENEDOR*/
-  border: #667d37 8px outset;
-  background:#809c48; /*<!--#a6cc5a-->*/
-
-  /*Hace que las palabras se rompan al llegar al final del CONTENEDOR*/
-  -ms-word-break: break-all;
-     word-break: break-all;
-     word-break: break-word;
-
-  /*Ni idea*/
-  -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-
-  /*Ajusta el borde derecho del CONTENEDOR*/
-  overflow: hidden;
-  width:    55%;
-}
-
-.li{/*todos los LI van dentro de un BODY*/
-  /*Tamaño y posición del CONTENEDOR*/
-  margin: 1em auto;
-  width: 600px;
-
-  /*Forma del CONTENEDOR*/
-  padding: 3px 10px;
-    border: PowderBlue 5px;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-
-  /*Color del CONTENEDOR*/
-  border: #80303f 8px outset;
-  background: #c94d64;
-
-  /*Hace que las palabras se rompan al llegar al final del CONTENEDOR*/
-  -ms-word-break: break-all;
-     word-break: break-all;
-     word-break: break-word;
-
-  /*Ni idea*/
-  -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-
-  /*Ajusta el borde derecho del CONTENEDOR*/
-  hyphens: auto;
-  width:    80%;
-}
-
-.forma{
-    /*Hace que las palabras se rompan al llegar al final del CONTENEDOR*/
-  -ms-word-break: break-all;
-     word-break: break-all;
-     word-break: break-word;
-
- /*Forma del CONTENEDOR*/
-  padding: 3px 10px;
-    border: PowderBlue 5px;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-
-  /*Ni idea*/
-  -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-}
-
-#indice{
-  /*Tamaño y posición del CONTENEDOR*/
-  margin-top: 1.6em;
-  width:    50%;
-  width: 200px;
-
-  /*Color del CONTENEDOR*/
-  border: #912438 8px outset;
-  background: #c7324d;
-
-  /*Ajusta el borde derecho del CONTENEDOR*/
-    overflow: auto;
-    position: fixed;
-    height: auto;
-}
-
-#lista{
-  /*Tamaño y posición del CONTENEDOR*/
-  margin-left:  2em;
-  margin-right: 1em;
-  width: 100%;
-  width: 250px;
-  
-  /*Color del CONTENEDOR*/
-  border: #912438 8px outset;
-  background: #c7324d;
-}
-
-#descripción{
-  /*Tamaño y posición del CONTENEDOR*/
-  margin: 1em auto;
-  width: 600px;
-
-  /*Forma del CONTENEDOR*/
-  padding: 3px 10px;
-    border: PowderBlue 5px;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-  
-  /*Color del CONTENEDOR*/
-  border: #912438 8px outset;
-  background: #c7324d;
-
-  /*Hace que las palabras se rompan al llegar al final del CONTENEDOR*/
-  -ms-word-break: break-all;
-     word-break: break-all;
-     word-break: break-word;
-
-  /*Ni idea*/
-  -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-
-  /*Ajusta el borde derecho del CONTENEDOR*/
-    width:    90%;
-    overflow: hidden;
-
-  /*Ajusta las imagenes dentro del CONTENEDOR*/
-    justify-content: flex-end;
-}
-
-
-/** MUERTOS
-#indice_1{
-  /*Tamaño y posición del CONTENEDOR
-  margin: 1em auto;
-  width:    100%;
-  width: 150px;
-
-  /*Forma del CONTENEDOR
-  padding: 3px 10px;
-    border: PowderBlue 5px;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-
-  /*Color del CONTENEDOR
-  border: #912438 8px outset;
-  background: #c7324d;
-
-  /*Hace que las palabras se rompan al llegar al final del CONTENEDOR
-  -ms-word-break: break-all;
-     word-break: break-all;
-     word-break: break-word;
-
-  /*Ni idea
-  -webkit-hyphens: auto;
-    -moz-hyphens: auto;
-    -ms-hyphens: auto;
-    hyphens: auto;
-}
-**/
