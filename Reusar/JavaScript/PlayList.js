@@ -25,8 +25,12 @@ function next(){
     reproducor[0].setAttribute("src", nuevoVideo);
   }
 }
+<<<<<<< HEAD
 >>>>>>> parent of 13fc2b5 (Principio de Función única)
 /**
+=======
+
+>>>>>>> parent of 1ed5e93 (1)
 function back(){
   var reproducor = 
     document.getElementsByTagName("video");
@@ -41,7 +45,7 @@ function back(){
     var nuevoVideo = srcReproductor.substring(0,i) + newValue;
     reproducor[0].setAttribute("src", nuevoVideo);
   }
-}**/
+}
 
 
 function init(){
