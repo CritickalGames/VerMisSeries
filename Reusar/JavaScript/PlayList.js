@@ -1,78 +1,77 @@
 init();
 
-var capituloActual=1;
+capituloActual=1;
 
-function next(){
-  cap=setCapitulo("next");
-  setRecortar(cap);
-}
-
-function back(){
-  cap=setCapitulo("back");
-  setRecortar(cap);
-}
-//set 1
 function setReproductor(){
-    let reproducor = 
+  var reproducor = 
     document.getElementsByTagName("video");
-    return reproducor;
+  return reproducor;
 }
-
-function setSrcReproductor(){
+//  |
+function setSrc(){
   reproducor= setReproductor();
-  let srcReproductor = reproducor[0].getAttribute("src");
-  return srcReproductor;
+  var src = reproducor[0].getAttribute("src");
+  return src;
 }
+// |
+function setRemplazo(cap){
+  src= setSrc();
+  var remplazar = src.indexOf("video");
 
-
-function setIndice(){
-  setReproductor=setSrcReproductor();
-  let indice = srcReproductor.indexOf("video");
-  return indice;
-}
-
-function setCapitulo(nextOrBack){
-  let lista={
-    1:"1.mp4",
-    2:"2.mp4"
-
-  };
-  size=Object.values(lista).length;
-
-  if (nextOrBack=="next"&&capituloActual<size) {
-    capituloActual+=1;
-  }else if(nextOrBack=="next"&&capituloActual==size){
-    capituloActual=1;
-  }else if(capituloActual>1){
-    capituloActual-=1
-  }else if(capituloActual==1){
-    capituloActual=size;
-  }
-  let cap = lista[capituloActual];
-  return cap;
-}
-
-function setRecortar(cap){
-  srcReproductor=setSrcReproductor();
-  indice=setIndice();
-
-  if(indice>-1){
-    indice = (indice+5);
-    let changestr = srcReproductor.substring(indice,srcReproductor.length);
-    let nuevoVideo = srcReproductor.substring(0,indice) + cap;
+  if(remplazar>-1){
+    remplazar = (remplazar+5);
+    var changestr = src.substring(remplazar,src.length);
+    var nuevoVideo = src.substring(0,remplazar) + cap;
     reproducor[0].setAttribute("src", nuevoVideo);
   }
 }
-//set 1 fin
+// -
+function setCapitulo(nextOrder){
+  var lista={
+    1:"1.mp4",
+    2:"2.mp4"
+  };
 
+  Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+  };
+
+  var size = Object.size(lista);
+
+  if(nextOrder=="next"&&capituloActual<size){
+    capituloActual+=1;
+  }else if(nextOrder=="back"&&capituloActual>1){
+    capituloActual-=1;
+  }else if (nextOrder=="next"&&capituloActual==size) {
+    capituloActual=1;
+  }else if (nextOrder=="back"&&capituloActual==1) {
+    capituloActual=size;
+  }else{
+    alert("Algo está mal escrito");
+  }
+
+  return lista[capituloActual];
+}
+// |
+function next(){
+  var cap = setCapitulo("next"); 
+  setRemplazo(cap);  
+}
+// (||)
+function back(){
+  var cap = setCapitulo("back"); 
+  setRemplazo(cap);
+}
+
+
+
+//(!=)
 function init(){
   const video = document.getElementById('video');
 
   video.addEventListener('ended', next);  
-
-}
-
-
-function alertar(){
-  alert("FINAL");
 }
