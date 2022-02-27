@@ -6,23 +6,18 @@ var lista={
 
 };
 
-function next(){
-  var cap = "2.mp4"; 
-  setRemplazo(cap);  
-}
-
 function setReproductor(){
   var reproducor = 
     document.getElementsByTagName("video");
   return reproducor;
 }
-
+//  |
 function setSrc(){
   reproducor= setReproductor();
   var src = reproducor[0].getAttribute("src");
   return src;
 }
-
+// |
 function setRemplazo(cap){
   src= setSrc();
   var remplazar = src.indexOf("video");
@@ -34,6 +29,14 @@ function setRemplazo(cap){
     reproducor[0].setAttribute("src", nuevoVideo);
   }
 }
+// |
+function next(){
+  var cap = lista[2]; 
+  setRemplazo(cap);  
+}
+
+
+
 
 
 function back(){
