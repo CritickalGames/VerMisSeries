@@ -7,33 +7,47 @@ var lista={
 };
 
 function next(){
+  var cap = "2.mp4"; 
+  setRemplazo(cap);  
+}
+
+function setReproductor(){
   var reproducor = 
     document.getElementsByTagName("video");
-  var srcReproductor = reproducor[0].getAttribute("src");
-  var cap = "2.mp4";
-  var i = srcReproductor.indexOf("video");
-  
+  return reproducor;
+}
 
-  if(i>-1){
-    i = (i+5);
-    var changestr = srcReproductor.substring(i,srcReproductor.length);
-    var nuevoVideo = srcReproductor.substring(0,i) + cap;
+function setSrc(){
+  reproducor= setReproductor();
+  var src = reproducor[0].getAttribute("src");
+  return src;
+}
+
+function setRemplazo(cap){
+  src= setSrc();
+  var remplazar = src.indexOf("video");
+
+  if(remplazar>-1){
+    remplazar = (remplazar+5);
+    var changestr = src.substring(remplazar,src.length);
+    var nuevoVideo = src.substring(0,remplazar) + cap;
     reproducor[0].setAttribute("src", nuevoVideo);
   }
 }
 
+
 function back(){
   var reproducor = 
     document.getElementsByTagName("video");
-  var srcReproductor = reproducor[0].getAttribute("src");
+  var src = reproducor[0].getAttribute("src");
   var cap = "1.mp4";
-  var i = srcReproductor.indexOf("video");
+  var i = src.indexOf("video");
   
 
   if(i>-1){
     i = (i+5);
-    var changestr = srcReproductor.substring(i,srcReproductor.length);
-    var nuevoVideo = srcReproductor.substring(0,i) + cap;
+    var changestr = src.substring(i,src.length);
+    var nuevoVideo = src.substring(0,i) + cap;
     reproducor[0].setAttribute("src", nuevoVideo);
   }
 }
