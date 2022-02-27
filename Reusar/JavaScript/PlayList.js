@@ -1,52 +1,69 @@
 init();
 
+var capituloActual=1;
 
+function next(){
+  cap=setCapitulo("next");
+  setRecortar(cap);
+}
 
-
-<<<<<<< HEAD
-=======
+function back(){
+  cap=setCapitulo("back");
+  setRecortar(cap);
+}
+//set 1
 function setReproductor(){
-    var reproducor = 
+    let reproducor = 
     document.getElementsByTagName("video");
     return reproducor;
 }
 
-function next(){
+function setSrcReproductor(){
   reproducor= setReproductor();
-  var srcReproductor = reproducor[0].getAttribute("src");
-  var newValue = "2.mp4";
-  var i = srcReproductor.indexOf("video");
-  
+  let srcReproductor = reproducor[0].getAttribute("src");
+  return srcReproductor;
+}
 
-  if(i>-1){
-    i = (i+5);
-    var changestr = srcReproductor.substring(i,srcReproductor.length);
-    var nuevoVideo = srcReproductor.substring(0,i) + newValue;
+
+function setIndice(){
+  setReproductor=setSrcReproductor();
+  let indice = srcReproductor.indexOf("video");
+  return indice;
+}
+
+function setCapitulo(nextOrBack){
+  let lista={
+    1:"1.mp4",
+    2:"2.mp4"
+
+  };
+  size=Object.values(lista).length;
+
+  if (nextOrBack=="next"&&capituloActual<size) {
+    capituloActual+=1;
+  }else if(nextOrBack=="next"&&capituloActual==size){
+    capituloActual=1;
+  }else if(capituloActual>1){
+    capituloActual-=1
+  }else if(capituloActual==1){
+    capituloActual=size;
+  }
+  let cap = lista[capituloActual];
+  return cap;
+}
+
+function setRecortar(cap){
+  srcReproductor=setSrcReproductor();
+  indice=setIndice();
+
+  if(indice>-1){
+    indice = (indice+5);
+    let changestr = srcReproductor.substring(indice,srcReproductor.length);
+    let nuevoVideo = srcReproductor.substring(0,indice) + cap;
     reproducor[0].setAttribute("src", nuevoVideo);
   }
 }
-<<<<<<< HEAD
->>>>>>> parent of 13fc2b5 (Principio de Función única)
-/**
-=======
-
->>>>>>> parent of 1ed5e93 (1)
-function back(){
-  var reproducor = 
-    document.getElementsByTagName("video");
-  var srcReproductor = reproducor[0].getAttribute("src");
-  var newValue = "1.mp4";
-  var i = srcReproductor.indexOf("video");
-  
-
-  if(i>-1){
-    i = (i+5);
-    var changestr = srcReproductor.substring(i,srcReproductor.length);
-    var nuevoVideo = srcReproductor.substring(0,i) + newValue;
-    reproducor[0].setAttribute("src", nuevoVideo);
-  }
-}
-
+//set 1 fin
 
 function init(){
   const video = document.getElementById('video');
