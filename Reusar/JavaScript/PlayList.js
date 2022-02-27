@@ -1,10 +1,6 @@
 init();
 
-var lista={
-  1:"1.mp4",
-  2:"2.mp4"
-
-};
+capituloActual=1;
 
 function setReproductor(){
   var reproducor = 
@@ -29,41 +25,53 @@ function setRemplazo(cap){
     reproducor[0].setAttribute("src", nuevoVideo);
   }
 }
+// -
+function setCapitulo(nextOrder){
+  var lista={
+    1:"1.mp4",
+    2:"2.mp4"
+  };
+
+  Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+  };
+
+  var size = Object.size(lista);
+
+  if(nextOrder=="next"&&capituloActual<size){
+    capituloActual+=1;
+  }else if(nextOrder=="back"&&capituloActual>1){
+    capituloActual-=1;
+  }else if (nextOrder=="next"&&capituloActual==size) {
+    capituloActual=1;
+  }else if (nextOrder=="back"&&capituloActual==1) {
+    capituloActual=size;
+  }else{
+    alert("Algo está mal escrito");
+  }
+
+  return lista[capituloActual];
+}
 // |
 function next(){
-  var cap = lista[2]; 
+  var cap = setCapitulo("next"); 
   setRemplazo(cap);  
 }
-
-
-
-
-
+// (||)
 function back(){
-  var reproducor = 
-    document.getElementsByTagName("video");
-  var src = reproducor[0].getAttribute("src");
-  var cap = "1.mp4";
-  var i = src.indexOf("video");
-  
-
-  if(i>-1){
-    i = (i+5);
-    var changestr = src.substring(i,src.length);
-    var nuevoVideo = src.substring(0,i) + cap;
-    reproducor[0].setAttribute("src", nuevoVideo);
-  }
+  var cap = setCapitulo("back"); 
+  setRemplazo(cap);
 }
 
 
+
+//(!=)
 function init(){
   const video = document.getElementById('video');
 
   video.addEventListener('ended', next);  
-
-}
-
-
-function alertar(){
-  alert("FINAL");
 }
